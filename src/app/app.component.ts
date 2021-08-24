@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RegisterService } from './register.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularprac';
+  constructor(public r:RegisterService){}
+  onLogout(){
+    localStorage.clear();
+    this.r.loginStatus=false;
+  }
 }

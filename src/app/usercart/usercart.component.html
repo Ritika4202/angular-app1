@@ -1,0 +1,13 @@
+<hr>
+<table *ngIf="!cartEmpty" class="table mx-auto text-center">
+    <thead>
+        <th>Productname</th>
+        <th>Price</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+<td>{{product.productname}}</td>
+<td>{{product.price|currency :'USD'}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+<h1 class=" page-header text-center">LOGIN HERE</h1>
+<form (ngSubmit)="loginData()">
+    <div class="container">
+      <span id="parent" >
+        <input type="radio" id="admin" name="type" value="admin" (change)="onSelect($event)">
+<label  for="admin">ADMIN</label>
+        <span id="child">
+          <input type="radio" id="user" name="type" value="user" (change)="onSelect($event)">
+          <label  for="user">USER</label><br>
+        </span>
+      </span>
+      
+<br>
+<br>
+
+      <div class="mb-3 form-group">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <br>
+        <input type="text"  id="exampleInputEmail1" class="form-control" name="username"  [(ngModel)]="obj2.username">
+        
+      </div>
+        <div class="mb-3 form-group">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <br>
+          <input type="password"  id="exampleInputPassword1" name="password" class="form-control" [(ngModel)]="obj2.password">
+        </div>
+        <br>
+        <button type="submit" class="button button1">Login</button>
+    </div>
+  </form>
+
+  
