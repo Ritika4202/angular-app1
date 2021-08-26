@@ -1,31 +1,28 @@
-
-<nav class="navbar  navbar-light navbar-expand-sm" style="background-color: #e3f2fd">
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
   <div class="container-fluid ms-auto">
-    <!--<a class="navbar-brand" href="#"></a>-->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> 
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse  " id="navbarNavAltMarkup ">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link text-dark " routerLink="home" *ngIf="!r.loginStatus">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark " routerLink="register" *ngIf="!r.loginStatus">Register</a>
-        </li>
-         <li>
-          <a class="nav-link text-dark " routerLink="login" *ngIf="!r.loginStatus">Login</a>
-         </li> 
-         <li>
-          <a class="nav-link text-dark " routerLink="login" *ngIf="r.loginStatus" (click)=onLogout()>Logout</a>
-         </li>
-         
-        
-        
-        
-      </ul>
-    </div>
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+    <li class="nav-item">
+      <a class="nav-link text-dark " routerLink="home" *ngIf="!r.loginStatus">Home</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link text-dark " routerLink="register" *ngIf="!r.loginStatus">Register</a>
+      </li>
+      <li>
+      <a class="nav-link text-dark " routerLink="login" *ngIf="!r.loginStatus">Login</a>
+      </li>
+      <li>
+      <a class="nav-link text-dark " routerLink="login" *ngIf="r.loginStatus" (click)=onLogout()>Logout</a>
+      </li>
+  </ul>
   </div>
-</nav>
+  </div>
+  </nav>
+  <div class="container">
+  <router-outlet></router-outlet>
+  </div>
 
-<router-outlet></router-outlet>
