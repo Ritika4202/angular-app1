@@ -1,14 +1,14 @@
 <h1 class=" page-header text-center">LOGIN HERE</h1>
 <form (ngSubmit)="loginData()">
     <div class="container">
-      <span id="parent" >
-        <input type="radio" id="admin" name="type" value="admin" (change)="onSelect($event)">
-<label  for="admin">ADMIN</label>
-        <span id="child">
-          <input type="radio" id="user" name="type" value="user" (change)="onSelect($event)">
-          <label  for="user">USER</label><br>
-        </span>
-      </span>
+      <div class="row">
+        <div class="col-sm-6" ><input type="radio" id="admin" name="type" value="admin" (change)="onSelect($event)">
+    <label  for="admin">ADMIN</label>
+        </div>
+        <div class="col-sm-6" ><input type="radio" id="user" name="type" value="user" (change)="onSelect($event)">
+              <label  for="user">USER</label><br></div>
+        
+    </div>
       
 <br>
 <br>

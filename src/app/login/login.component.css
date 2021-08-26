@@ -1,11 +1,4 @@
-#child{
-    position:absolute ;
-    left: 300px;
-    font-size: 25px;
-}
-#parent{
-    font-size: 25px;
-}
+
 .button1{
     background-color: #21b3bd; /* Green */
   border: none;
