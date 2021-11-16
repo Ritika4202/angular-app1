@@ -37,4 +37,8 @@ export class RegisterService {
  getProductFromCart(username):Observable<any>{
    return this.hc.get(`/user/getproducts/${username}`)
  }
+ 
+ deleteProductFromUserCart(userProdObj):Observable<any>{
+  return this.hc.post("/user/delete-from-cart",userProdObj)
+}
 }

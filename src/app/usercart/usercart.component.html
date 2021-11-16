@@ -1,13 +1,33 @@
 <hr>
 <table *ngIf="!cartEmpty" class="table mx-auto text-center">
     <thead>
+        <th></th>
         <th>Productname</th>
         <th>Price</th>
     </thead>
     <tbody>
         <tr *ngFor="let product of products">
+            <td><input #saveUserNameCheckBox type="checkbox"  id="saveUserNameCheckBox" name="vehicle1" value="Inbound" [checked]="saveUsername"
+                (change)="onSaveUsernameChanged(saveUserNameCheckBox.checked,product)"></td>
 <td>{{product.productname}}</td>
-<td>{{product.price|currency :'USD'}}</td>
+<td>{{product.price|currency :'INR'}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button (click)="total()" class="button ">TOTAL</button></td>
+            <td *ngIf=(this.statusPayment)>{{this.sum|currency :'INR'}}</td>
+        </tr>
+        <tr>
+            <td *ngIf=(this.statusPayment)><button (click)="proceedToBuy()"  class="button button1 ">PROCEED TO BUY</button></td>
+            <td  *ngIf=(this.proceedToBuyStatus)> <img src="../../assets/download.png" style="height:75px"></td>
+            <td  *ngIf=(this.proceedToBuyStatus)><label>Add Address</label><br>
+                <input type="text" [(ngModel)]="obj"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td *ngIf="obj!=''"><button (click)="placeOrder()"  class="button button1 ">PLACE ORDER</button></td>
         </tr>
     </tbody>
 </table>
+
+

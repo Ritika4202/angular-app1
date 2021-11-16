@@ -6,10 +6,10 @@
  <div class="col" *ngFor="let product of products|search: searchItem">
   <div class="card border border-dark" style="width: 18rem;">
     <img src="{{product.productImage}}" class="card-img-top border border-dark" alt="...">
-    <div class="card-body" >
+    <div class="card-body m-4" >
       <h5 class="card-title">{{product.productname}}</h5>
       <p class="card-title">{{product.description}}</p>
-      <p class="card-text"><bold>Price:</bold>${{product.price}}</p>
+      <p class="card-text"><bold>Price:</bold>{{product.price | currency:'INR'}}</p>
       <button class="btn btn-danger text-white" *ngIf="currentUser=='admin'"(click)="onDelete(product)">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>

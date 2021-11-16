@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { register1 } from '../models/register.model';
 import { RegisterService } from '../register.service';
-import { NgForm } from '@angular/forms'
+import { FormBuilder, NgForm } from '@angular/forms'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,15 +10,19 @@ import { NgForm } from '@angular/forms'
 })
 export class RegisterComponent implements OnInit {
   file:File;
-  constructor(private r:RegisterService,private router:Router) { }
+  leadForm;
+  displayInputBox: boolean = false;
+  constructor(private r:RegisterService,private router:Router,private fb:FormBuilder) { }
 
   ngOnInit(): void {
+  
   }
   selectFile(event){
    this.file=event.target.files[0];
    console.log(this.file)
   }
-  formData(obj1){
+  formData1(obj1){
+    console.log("obj1",obj1)
     let formData=new FormData();
     formData.append("photo",this.file,this.file.name)
     formData.append("obj1",JSON.stringify(obj1))

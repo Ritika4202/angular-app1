@@ -152,4 +152,20 @@ userapi.get("/getproducts/:username",expressErrorHandler(async(req,res,next)=>{
 userapi.get("/testing",checkToken,(req,res)=>{
     res.send({message:"This is protected data"})
 })
+userapi.post("/delete-from-cart",expressErrorHandler(async(req,res,next)=>{
+    let newProductObject=req.body;
+    let usercartcollectionobj=req.app.get("usercartcollectionobj")
+    let userCartObj=await usercartcollectionobj.findOne({username:newProductObject.username})
+    newProductObject.arr.forEach(element => {
+       const index= userCartObj.products.indexOf(element);
+       userCartObj.products.splice(index,1);
+        
+    });
+        //userCartObj.products.push(newProductObject.prodObj)
+        await usercartcollectionobj.updateOne({username:newProductObject.username},{$set:{...userCartObj}})
+        
+        let latestUserCartObj=await usercartcollectionobj.findOne({username:newProductObject.username})
+        res.send({message:"New product added successfully to cart!",latestUserCartObj:latestUserCartObj})
+    
+}))
 module.exports=userapi;
